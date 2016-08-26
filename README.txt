@@ -14,5 +14,5 @@ When program is running cant close the window to exit. (not a big problem) real 
 Possible solution, have the window closing event run on a seperate thread
 
 Work in progress
-Create a function for the distance formula so that
+Create a function for the distance formula
 
