@@ -51,25 +51,18 @@ Y_Points = [0 for x in range(numCircles)]
 for i in range(0, numCircles):  # creates x and y coordinates within the boundaries
     X_Points[i] = random.randint(randWidthLower, randWidthUpper)
     Y_Points[i] = random.randint(randHeightLower, randHeightUpper)
-
-for i in range(0, numCircles):  # makes circles
     p.draw.circle(screen, COLOR1, (X_Points[i], Y_Points[i]), radius)
     update()
-    p.event.pump()  # allows the window to be moved will executing
-    timer(delay)
-
-for i in range(0, numCircles - 1):
+    p.event.pump()  # allows the window to be moved will executing, prevents Windows from timing out the process
     timer(delay)
     for j in range(0, numCircles - 1):
-
         # distance formula
         dist[i] = math.sqrt(((X_Points[i] - X_Points[j + 1]) ** 2) + ((Y_Points[i] - Y_Points[j + 1]) ** 2))
         if (dist[i] < distanceBtwn):  # connects all points that are less than distanceBtwn
             p.draw.line(screen, COLOR3, (X_Points[i], Y_Points[i]), (X_Points[j + 1], Y_Points[j + 1]), 1)
-            timer(delay)
             update()
-
-    p.event.pump()
+        timer(delay)
+        p.event.pump()        
 
 while True:
     for event in p.event.get():
